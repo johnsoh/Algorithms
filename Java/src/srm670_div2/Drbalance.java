@@ -14,17 +14,18 @@ public class Drbalance {
 		int[] chart = new int[max];
 		
 		chart[0] = s.charAt(0) == '+' ? 1 : -1;
-		if (chart[0] < 0) negativePrefixes++;
-		for(int i = 1; i < max; i++) {
-			int thisPrefix = chart[i-1] + s.charAt(i) == '+' ? 1 : -1;
+		if (chart[0] == -1) negativePrefixes++;
+		
+		for(int i = 1; i < max; i++) 
+		{
+			int thisPrefix = chart[i-1] + (s.charAt(i) == '+' ? 1 : -1);
 			chart[i] = thisPrefix;
 			if (thisPrefix < 0) negativePrefixes++;
 		}
 		
 		// possible optimization: create chart without positive numbers
 		// might not really help as we will keep generating positive numbers every iteration
-		
-		for( ; firstNegativePosition < max || chart[firstNegativePosition] > 0; firstNegativePosition++) {}
+		for( ; firstNegativePosition < max && chart[firstNegativePosition] >= 0; firstNegativePosition++) {}
 		
 		int rounds = 0;
 		while(negativePrefixes > k) {
@@ -32,18 +33,21 @@ public class Drbalance {
 			rounds++;
 			boolean hasFoundFirstNegative = false;
 			
-			for(int i = firstNegativePosition; i < max; i++) {
+			for(int i = firstNegativePosition; i < max; i++) 
+			{
+				if(chart[i] >= 0) continue;
 				chart[i] += 2;
-				if (chart[i] > 0) {
+				if (chart[i] >= 0)  // need to reflect change accurately
+				{
 					negativePrefixes--;
-				} else if (!hasFoundFirstNegative) {
+				} 
+				else if (!hasFoundFirstNegative) 
+				{
 					hasFoundFirstNegative = true;
 					firstNegativePosition = i;
 				}
 			}
-			
 		}
-		
 		return rounds;
 	}
 }
