@@ -1,5 +1,7 @@
 package srm670_div2;
 
+import java.util.Arrays;
+
 public class Treestrat {
 
 	public static int roundcnt(int[] tree, int[] A, int[] B)
@@ -34,32 +36,31 @@ public class Treestrat {
 			}
 		}
 		
-		// get the easiest prey
-		int min = INFINITE;
-		for(int prey : A) {
-			for(int hunter : B) {
-				int dist = howFarCanPreyMakeHunterWalk(allShortestPaths, prey, hunter);
-				min = Math.min(min, dist);
+		// get combined effectiveness of all B: sum of hunters is greater than the parts
+		int[] combinedHunter = Arrays.copyOf(allShortestPaths[B[0]], totalNodes);
+		for(int hunter : B) {
+			int[] hunterProfile = allShortestPaths[hunter];
+			for(int i = 0; i < totalNodes; i++) {
+				if (hunterProfile[i] < combinedHunter[i]) 
+					combinedHunter[i] = hunterProfile[i];
 			}
 		}
 		
-		return min;
-	}
-	
-	private static int howFarCanPreyMakeHunterWalk(int[][] allShortestPaths, int prey, int hunter) {
-		
-		int totalNodes = allShortestPaths[0].length;
-		int maxDistance = -1;
-		
-		for(int i = 0; i < totalNodes; i++) {
-			int distFromPrey = allShortestPaths[prey][i];
-			int distFromHunter = allShortestPaths[hunter][i];
-			int preyAdvantage = distFromHunter - distFromPrey;
-			
-			if (preyAdvantage < 0) continue; // because prey would not go there 
-			maxDistance = Math.max(maxDistance, preyAdvantage);
+		// get the easiest prey
+		int min = INFINITE;
+		for(int prey : A) {
+			int[] preyProfile = allShortestPaths[prey];
+			int maxDelayPreyCanCause = 0;
+			for(int i = 0; i < totalNodes; i++) {
+				int distanceFromPrey = preyProfile[i];
+				int distanceFromHunter = combinedHunter[i];
+				if(distanceFromPrey < distanceFromHunter && distanceFromHunter > maxDelayPreyCanCause) {
+					maxDelayPreyCanCause = distanceFromHunter;
+				}
+			}
+			if(maxDelayPreyCanCause < min) min = maxDelayPreyCanCause;
 		}
 		
-		return maxDistance;
+		return min;
 	}
 }
