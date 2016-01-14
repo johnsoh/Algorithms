@@ -2,6 +2,11 @@ package srm671_div2;
 
 import java.util.HashMap;
 
+/*
+ * Given a series of numbers, how many sets of 4 numbers in non-consecutive ordered numbers
+ * a,b,c,d can you find that satisfy a*b*c = d?
+ */
+
 public class BearDartsDiv2 {
 	
 	public static long count(int[] w) {

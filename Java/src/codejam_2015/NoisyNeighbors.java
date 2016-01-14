@@ -2,6 +2,11 @@ package codejam_2015;
 
 import java.util.LinkedList;
 
+/*
+ * Given a R by C grid and N items, what is the minimum number of times that when 
+ * the N items are arranged in the grid that items are opposite one another.  
+ */
+
 public class NoisyNeighbors {
 
 	public static LinkedList<Integer> list;

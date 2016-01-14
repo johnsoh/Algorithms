@@ -1,5 +1,9 @@
 package srm671_div2;
 
+/*
+ * Given a W x H grid and M squares, what is the biggest rectangle you can form?
+ */
+
 public class BearPaints {
 
 	public static long maxArea(int W, int H, long M) {
