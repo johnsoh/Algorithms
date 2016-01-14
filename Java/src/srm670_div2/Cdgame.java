@@ -4,7 +4,6 @@ import java.util.HashSet;
 
 public class Cdgame {
 	
-	//https://community.topcoder.com/stat?c=problem_statement&pm=14062&rd=16550
 	/*
 	* Given 2 sets of numbers a and b, if we swap 1 random number from a 
 	* with 1 random number from b then take the product of the sums of the 2 sets,
