@@ -8,3 +8,9 @@ Algorithms
 -Cpp  
 --Header // where all our .h files are  
 --Source // where all our .cpp files are  
+  
+Possible TODOs  
+Synchornize cpp local file sys
+
+  
+  
