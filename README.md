@@ -9,6 +9,16 @@ Algorithms
 --Header // where all our .h files are  
 --Source // where all our .cpp files are  
   
+  
+  
+Java Setup  
+Create new project as per normal
+Import the src folder into "src" in eclipse
+Right click project Run As > Run Configuration > Java Application. Select the main class
+  
+Cpp Setup
+TODO
+  
 Possible TODOs  
 Synchornize cpp local file sys
 
