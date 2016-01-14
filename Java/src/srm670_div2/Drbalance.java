@@ -3,6 +3,12 @@ package srm670_div2;
 public class Drbalance {
 	
 	// https://community.topcoder.com/stat?c=problem_statement&pm=14060&rd=16550
+	/*
+	* Given a string made of + and - symbols, it has 2 properties:
+	* prefixes: strings with can be formed by removing any number of symbols starting from the right
+	* negativity: the number of prefixes that when summing up - as -1 and + as +1, gives a negative number
+	* Find the minimum number of times we need to swap - to + to make the negativity at least k. 
+	*/
 	
 	public static int lesscng(String s, int k)
 	{
