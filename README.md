@@ -1,6 +1,6 @@
 # Algorithms
 
-Folder structure
+Folder structure + Algorithms
 
 Algorithms  
 -Java  
