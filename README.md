@@ -4,7 +4,8 @@ Folder structure + Algorithms
 
 Algorithms  
 -Java  
---Src // where all our .Java files are  
+--Src // where all our .Java files are 
+----NoisyNeighbours // Counting, bitmasks    
 ---670  
 ----Cdgame // counting  
 ----DrBalance  // strings, minimization  
