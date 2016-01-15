@@ -8,7 +8,7 @@ Algorithms
 ---670  
 ----Cdgame // counting  
 ----DrBalance  // strings, minimization  
-----Treestrat  // graph 
+----Treestrat  // graph  
 ---671  
 ----BearPaints // Maximization  
 ----BearDarts2  // counting
