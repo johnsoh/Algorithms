@@ -11,7 +11,7 @@ Algorithms
 ----Treestrat  // graph  
 ---671  
 ----BearPaints // Maximization  
-----BearDarts2  // counting
+----BearDarts2  // counting  
 -Cpp  
 --Header // where all our .h files are  
 --Source // where all our .cpp files are  
