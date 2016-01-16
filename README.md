@@ -28,7 +28,13 @@ Cpp Setup
 TODO
   
 Possible TODOs  
-Synchornize cpp local file sys
+Synchornize cpp local file sys  
+
+Others  
+Java Issues  
+How to get the reousrces loaded  
+http://stackoverflow.com/questions/573679/open-resource-with-relative-path-in-java  
+  
 
   
   
