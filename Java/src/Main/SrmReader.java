@@ -15,7 +15,7 @@ public class SrmReader {
 	public SrmReader(String s) {
 		// http://stackoverflow.com/questions/573679/open-resource-with-relative-path-in-java
 		// See E-rich's response. add resources directory to the build path and then access 
-		URL url = Tests.class.getClass().getResource(s);
+		URL url = SrmReader.class.getClass().getResource(s);
 		File file = new File(url.getPath());
 		atStart = true;
 		round = 0;
