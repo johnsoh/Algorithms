@@ -32,7 +32,10 @@ Synchornize cpp local file sys
 
 Others  
 Java Issues  
-How to get the reousrces loaded  
+How to open project: use peter's solution and adding resources forward slash in front of resource file  
+http://stackoverflow.com/questions/2636201/how-to-create-a-project-from-existing-source-in-eclipse-and-then-find-it  
+
+How to get the reousrces loaded  correctly
 http://stackoverflow.com/questions/573679/open-resource-with-relative-path-in-java  
   
 
