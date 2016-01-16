@@ -1,11 +1,27 @@
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <stdio.h>
+#include <direct.h>
+#include "2012R1B.h"
 
 using namespace std;
 
 int main() {
-	cout << "hello";	
-	int k;
-	cin >> k;
+	cout << "hello" <<endl ;
+
+	// check current path 
+	char path[FILENAME_MAX];
+	_getcwd(path, sizeof(path));
+
+	// redirect cin 
+	ifstream in("../2012R1B.txt");
+	cin.rdbuf(in.rdbuf());
+	int round;
+	cin >> round;
+	cout << endl << round << endl;
+
+	getchar(); // pause 
 }
 
 /*
