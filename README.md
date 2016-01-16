@@ -38,6 +38,10 @@ http://stackoverflow.com/questions/2636201/how-to-create-a-project-from-existing
 How to get the reousrces loaded  correctly
 http://stackoverflow.com/questions/573679/open-resource-with-relative-path-in-java  
   
-
+CPP Setup  
+for some reason, Visual studio when creating a project by VS called proj1, the source files are placed in proj1/proj1. So for example if your source file is Main.cpp, it will be in proj1/proj1/Main.cpp. In order to set up VS with all the correct files,  
+1. Name your project Cpp
+2. Create from C:/git/Algorithms. Your source files will be here C:/git/Algorithms/Cpp/Cpp/*.cpp
+3. Then add all your source files in. You can skip the project or sln items
   
   
