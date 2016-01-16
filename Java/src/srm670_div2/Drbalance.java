@@ -13,20 +13,21 @@ public class Drbalance {
 		int negativePrefixes = 0;
 		int[] chart = new int[max];
 		
+		// find negativity of all prefixes
 		chart[0] = s.charAt(0) == '+' ? 1 : -1;
 		if (chart[0] == -1) negativePrefixes++;
 		
-		for(int i = 1; i < max; i++) 
+		for(int i = 1; i < max; i++)  
 		{
 			int thisPrefix = chart[i-1] + (s.charAt(i) == '+' ? 1 : -1);
 			chart[i] = thisPrefix;
 			if (thisPrefix < 0) negativePrefixes++;
 		}
 		
-		// possible optimization: create chart without positive numbers
-		// might not really help as we will keep generating positive numbers every iteration
+		// find first negative position
 		for( ; firstNegativePosition < max && chart[firstNegativePosition] >= 0; firstNegativePosition++) {}
 		
+		// keep changing first negative positions to positive until we meet criteria
 		int rounds = 0;
 		while(negativePrefixes > k) {
 			
@@ -37,10 +38,10 @@ public class Drbalance {
 			{
 				if(chart[i] >= 0) continue;
 				chart[i] += 2;
-				if (chart[i] >= 0)  // need to reflect change accurately
+				if (chart[i] >= 0)
 				{
 					negativePrefixes--;
-				} 
+				}
 				else if (!hasFoundFirstNegative) 
 				{
 					hasFoundFirstNegative = true;
