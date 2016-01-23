@@ -17,16 +17,26 @@ Algorithms
 --Header // where all our .h files are  
 --Source // where all our .cpp files are  
   
+
+<h2>How to setup on local machine after pull</h2>  
+  
+<h3>Java Setup (Eclipse)</h3>  
+Create a new project named Java  
+Location: ~git/Agorithms/Java  
+Import the src folder into "src" in eclipse  
+Right click project Run As > Run Configuration > Java Application. Select the main class  
+  
+<h3>Cpp Setup (Visual studio)</h3>  
+Create new empty project named Cpp  
+Location: ~git/Algorithms/Cpp     
+Right click on project and add existing item  
+Add select the cpp files
+  
+<h3>Csharp setup</h3>  
+Important: see code comment on how to add resources
   
   
-Java Setup  
-Create new project as per normal
-Import the src folder into "src" in eclipse
-Right click project Run As > Run Configuration > Java Application. Select the main class
-  
-Cpp Setup
-TODO
-  
+<h3>Others</h3>
 Possible TODOs  
 Synchornize cpp local file sys  
 
