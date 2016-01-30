@@ -103,6 +103,13 @@ public class SrmReader {
 		System.out.println(s);
 	}
 	
+	public static void checkStatic(Object expected, Object actual) {
+		boolean res = expected.equals(actual);
+		String s = "Case " + ": " + res;
+		s += " (Expected: " + expected + " Actual: " + actual + ")";
+		System.out.println(s);
+	}
+	
 	// misc & helpers
 	
 	public boolean hasNext() {
