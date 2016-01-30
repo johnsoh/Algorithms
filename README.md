@@ -8,7 +8,7 @@ Algorithms
 ----NoisyNeighbours // **Combinatorics: n Choose K**, bitmasks    
 ---670  
 ----Cdgame // counting  
-----DrBalance  // strings, minimization  
+----DrBalance  // strings, minimization, __Cumulative Frequency__    
 ----Treestrat  // graph. **Graph: Flyod-Warshall**    
 ---671  
 ----BearPaints // Maximization  
