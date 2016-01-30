@@ -54,22 +54,21 @@ public class FourStrings {
 	}
 
 	private static String frontBackStringMerge(String a, String b) {
-		String ab = "";
-		int aPtr = 0;  
 		int aMax = a.length(); 
 		int bMax = b.length();
-		int bPtr = bMax - 1; 
 		
-		while(aPtr < aMax && bPtr >= 0 && a.charAt(aPtr++) == b.charAt(bPtr--)) {
-			ab += a.charAt(aPtr);
+		// still need to do convolution-like compare
+		int overlapLimit = Math.min(aMax, bMax);
+		int maxOverlap = 0;
+		for(int i = 1; i <= overlapLimit; i++) {
+			if (a.substring(aMax - i, aMax).equals(b.substring(0, i))) maxOverlap = i; // note java.String .equals != ==
 		}
-		// need to put it back within bounds
-		ab = b.substring(0, 2+bPtr) + ab + a.substring(--aPtr, aMax);
-		// 2+bPtr: substring's index is exclusive of last string  
-		return ab; 
+		
+		return a + b.substring(maxOverlap, bMax);
 	}
 	
 	public static void Test() {
+		System.out.println("=== SRM 679 Test: FourStrings");
 		int ans = shortestLength("abc", "ab", "bc", "b");
 		SrmReader.checkStatic(3, ans);
 		
@@ -78,6 +77,9 @@ public class FourStrings {
 		 
 		ans = shortestLength("top", "coder", "opco", "pcode");
 		SrmReader.checkStatic(8, ans);
+		
+		ans = shortestLength("thereare","arelots","lotsof","ofcases");
+		SrmReader.checkStatic(19, ans);
 		
 		ans = shortestLength("aba", "b", "b", "b");
 		SrmReader.checkStatic(3, ans);
