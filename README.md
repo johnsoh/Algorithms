@@ -9,7 +9,7 @@ Algorithms
 ---670  
 ----Cdgame // counting  
 ----DrBalance  // strings, minimization, __Cumulative Frequency__    
-----Treestrat  // graph. **Graph: Flyod-Warshall**    
+----Treestrat  // graph. **Graph: Floyd-Warshall**    
 ---671  
 ----BearPaints // Maximization  
 ----BearDarts2  // counting  
