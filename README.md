@@ -16,6 +16,8 @@ Algorithms
 -Cpp  
 --Header // where all our .h files are  
 --Source // where all our .cpp files are  
+---2012R1B.cpp  
+----SafetyInNumbers (Binary Search: Continous)   
   
 
 <h2>How to setup on local machine after pull</h2>  
