@@ -5,22 +5,22 @@ Folder structure + Algorithms
 Algorithms  
 -Java  
 --Src // where all our .Java files are  
-----NoisyNeighbours // Combinatorics n Choose K, bitmasks    
+----NoisyNeighbours // **Combinatorics: n Choose K**, bitmasks    
 ---670  
 ----Cdgame // counting  
 ----DrBalance  // strings, minimization  
-----Treestrat  // graph. Flyod-Warshall    
+----Treestrat  // graph. **Flyod-Warshall**    
 ---671  
 ----BearPaints // Maximization  
 ----BearDarts2  // counting  
 ---677  
-----FourStrings  // Combinatorics (Order Permutation)  
-----PalindromePrime // Sieve of eratosthenes    
+----FourStrings  // **Combinatorics: Order Permutation**  
+----PalindromePrime // **Sieve of eratosthenes**    
 -Cpp  
 --Header // where all our .h files are  
 --Source // where all our .cpp files are  
 ---2012R1B.cpp  
-----SafetyInNumbers (Binary Search: Continous Minimization)   
+----SafetyInNumbers // **Binary Search: Continous Minimization**   
   
 
 <h2>How to setup on local machine after pull</h2>  
