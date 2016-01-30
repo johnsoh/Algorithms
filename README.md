@@ -9,10 +9,13 @@ Algorithms
 ---670  
 ----Cdgame // counting  
 ----DrBalance  // strings, minimization  
-----Treestrat  // graph  
+----Treestrat  // graph. Flyod-Warshall    
 ---671  
 ----BearPaints // Maximization  
 ----BearDarts2  // counting  
+---677  
+----FourStrings  // Combinatorics (Order Permutation)
+----PalindromePrime // Sieve of Erathonsis  
 -Cpp  
 --Header // where all our .h files are  
 --Source // where all our .cpp files are  
