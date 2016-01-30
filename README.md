@@ -14,8 +14,8 @@ Algorithms
 ----BearPaints // Maximization  
 ----BearDarts2  // counting  
 ---677  
-----FourStrings  // Combinatorics (Order Permutation)
-----PalindromePrime // Sieve of Erathonsis  
+----FourStrings  // Combinatorics (Order Permutation)  
+----PalindromePrime // Sieve of eratosthenes    
 -Cpp  
 --Header // where all our .h files are  
 --Source // where all our .cpp files are  
