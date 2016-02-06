@@ -9,6 +9,8 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.sun.org.apache.bcel.internal.generic.LLOAD;
+
 
 
 public class _1A_ChargingChaos implements Runnable {
@@ -44,6 +46,7 @@ public class _1A_ChargingChaos implements Runnable {
 			/*System.out.print("Case #"+ caseNo + ": ");
 			System.out.println(ans == null || ans.isEmpty() ? "NOT POSSIBLE" : ans.get(0) );*/
 		}
+		
 		scanner.close();
 	}
 
