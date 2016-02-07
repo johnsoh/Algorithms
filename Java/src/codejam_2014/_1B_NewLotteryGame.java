@@ -1,45 +1,85 @@
 package codejam_2014;
 
 import java.io.InputStream;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CountDownLatch;
 
-public class _1B_NewLotteryGame {
+public class _1B_NewLotteryGame implements Runnable {
 //_1B_NewLotteryGame_SmallInput
-	public static void Parse() {
+	public static void Parse() throws InterruptedException {
 		
 		InputStream is  = _1B_NewLotteryGame.class.getResourceAsStream("/resources/_1B_NewLotteryGame_Large");
 		//InputStream is  = _1B_NewLotteryGame.class.getResourceAsStream("/resources/_1B_NewLotteryGame_SmallInput");
 		Scanner scanner = new Scanner(is);
-		
-		int caseNo = 1;
 		int totalCases = scanner.nextInt();
-		for( ; caseNo <= totalCases; caseNo++) {
+		
+		ConcurrentHashMap<Integer, String> cHm = new ConcurrentHashMap<Integer,String>();
+		CountDownLatch countdown = new CountDownLatch(totalCases);
+		
+		for(int caseNo = 1; caseNo <= totalCases; caseNo++) {
 			int A = scanner.nextInt();
 			int B = scanner.nextInt();
 			int K = scanner.nextInt();
 
-			int sum = solveLargeInput(A, B, K);
+			//String sum = String.valueOf(solveSmallInput(A,B,K));
+			//String sum = solveLargeInput(A, B, K).toString(); //10,16,52,2411,14377
+			_1B_NewLotteryGame solver = new _1B_NewLotteryGame();
+			solver.A = A; solver.B = B; solver.K = K; solver.CaseNum = caseNo;
+			solver.cHm = cHm; solver.countdown = countdown;
+			Thread thread = new Thread(solver);
+			thread.start();
 			
-			// for each num 0 - A. count the num of 0s. 
-			// now all these 0s doesnt quite matter if its 1 or 0. what is the power set?
-			// powerset = 2^(N). i.e. 00 => 2^2 = 4. 
-			// num of open bits .i.e. for each a: get all open bits from  prev 1111 in B. then from 1000 to 1010 , calc slowly. 
-			
-			
-			System.out.print("Case #"+ caseNo + ": ");
-			System.out.println(sum);
+			//System.out.print("Case #"+ caseNo + ": ");
+			//System.out.println(sum);
 		}
+		countdown.await();
+		for(int caseNo = 1; caseNo <= totalCases; caseNo++) {
+			System.out.print("Case #"+ caseNo + ": ");
+			System.out.println(cHm.get(caseNo));
+		}
+		
+		
 		scanner.close();
 	}
-
-	private static int solveLargeInput(int A, int B, int K) {
+/* 3: 000, 001, 010
+ * 4: 000, 001, 010, 011
+ * 2: 000, 001 
+ * 
+ * trick: if a number a is less than K, all &-ings with b will be less than k. 
+ * */
 	
-		int sum = 0;
-		sum += calcOneWay(K, A, B);
-		sum += calcOneWay(K, B, A);
-		
+	ConcurrentHashMap<Integer, String> cHm ;
+	int A; int B; int K; int CaseNum;
+	CountDownLatch countdown;
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		String ans =  solveLargeInput(A,B,K).toString();
+		cHm.put(CaseNum, ans);
+		countdown.countDown();
+		System.out.println(countdown.getCount());
+	}
+	
+	private static BigInteger solveLargeInput(int A, int B, int K) {
+	
+		//int sum = 0;
+		BigInteger sum = BigInteger.ZERO;
+		for (int i = 0; i < A; i++) {
+			if (i < K) sum = sum.add(BigInteger.valueOf(B));
+			else {
+				sum = sum.add(BigInteger.valueOf(K));
+				int count = 0;
+				for(int j = K; j < B; j++) {
+					if ((j&i) < K) count++;
+				}
+				sum = sum.add(BigInteger.valueOf(count));
+			}
+		}
 		return sum;
 	}
 
@@ -87,4 +127,8 @@ public class _1B_NewLotteryGame {
 		}
 		return sum;
 	}
+
+
+
+
 }

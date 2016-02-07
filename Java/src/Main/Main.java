@@ -17,7 +17,7 @@ import srm679_div2.ListeningSongs;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		System.out.println("hello asd");
 		//RevengeOfTheSith.test();
