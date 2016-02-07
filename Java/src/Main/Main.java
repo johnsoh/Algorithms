@@ -22,6 +22,7 @@ public class Main {
 		System.out.println("hello asd");
 		//RevengeOfTheSith.test();
 		//FourStrings.Test();
-		_1B_NewLotteryGame.Parse();
+		//_1B_NewLotteryGame.Parse();
+		_1B_TheRepeater.Parse();
 	}
 }

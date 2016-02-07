@@ -2,6 +2,7 @@ package codejam_2014;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,15 +21,46 @@ public class _1B_TheRepeater {
 			for (int i = 0; i < words; i++) list.add(scanner.next());
 			
 			// solve
-			List<Character> symbols = getSymbolsList(list);
-			int minChanges = calcMinChanges(words, list, symbols);
+			String ans = solveSmall(list);
 			System.out.print("Case #"+ caseNo + ": ");
-			System.out.println(minChanges == -1 ? "Fegla Won" : minChanges);
+			System.out.println(ans);
 		}
 		scanner.close();
 	}
+	
+	private static String solveSmall(List<String> words) {
+		String FALSE = "Fegla Won";
+		List<Character> word1 = new LinkedList<Character>();
+		List<Character> word2 = new LinkedList<Character>();
+		for(char c : words.get(0).toCharArray()) word1.add(c);
+		for(char c : words.get(1).toCharArray()) word2.add(c);
+		
+		int sum = 0;
+		while(word1.size() > 0 && word2.size() > 0) {
+			if (word1.get(0) != word2.get(0)) {
+				return FALSE;
+			}
+			char c = word1.get(0);
+			int c1 = shredAndCountC(word1, c);
+			int c2 = shredAndCountC(word2, c);
+			sum += Math.abs(c1 - c2); //Math.ceil((c1+c2)/2.0);
+		}
+		if (word1.size() > 0 || word2.size() > 0) return FALSE; // need to check that we have processed both strings fully
+		return Integer.toString(sum);
+	}
 
-	private static int calcMinChanges(int words, List<String> list, List<Character> symbols) {
+	private static int shredAndCountC(List<Character> word, char c) {
+		int count = 0;
+		while(word.size() > 0 && word.get(0) == c) {
+			word.remove(0); 
+			count++;
+		}
+		return count;
+	}  
+
+	private static String calcMinChanges(List<String> list) {
+		int words = list.size();
+		List<Character> symbols = getSymbolsList(list);
 		int[][] data = new int[words][];
 		for (int word = 0; word < words; word++) {
 			char[] arr = list.get(word).toCharArray();
@@ -39,7 +71,7 @@ public class _1B_TheRepeater {
 				if(arr[j-1] != arr[j]) 
 				{
 					if (arr[j-1] != symbols.get(pointer)) {
-						return -1;
+						return "Fegla Won";
 					}
 					data[word][pointer] = count;
 					pointer++;
@@ -69,7 +101,7 @@ public class _1B_TheRepeater {
 			}
 		}
 		
-		return sum;
+		return sum == -1 ? "Fegla Won" : Integer.toString(sum);
 	}
 
 	private static List<Character> getSymbolsList(List<String> list) {
