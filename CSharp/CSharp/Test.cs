@@ -8,6 +8,15 @@ namespace CSharp
 {
     public class Test
     {
+
+        // checking
+        public static void Check(object a, object b)
+        {
+            var res = a == b;
+            Console.WriteLine(string.Format("{0} {1} {2}", res, a.ToString(), b.ToString()));
+        }
+
+
         #region new input accessors
         public static int Int
         {
@@ -113,7 +122,7 @@ namespace CSharp
             return pointer < file.Length;
         }
         #endregion
-
+        
 
         #region administrative
         static int pointer = 0;

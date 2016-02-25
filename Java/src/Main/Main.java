@@ -23,6 +23,7 @@ public class Main {
 		//RevengeOfTheSith.test();
 		//FourStrings.Test();
 		//_1B_NewLotteryGame.Parse();
-		_1B_TheRepeater.Parse();
+		//_1B_TheRepeater.Parse();
+		_1A_ChargingChaos.Parse(); 
 	}
 }
