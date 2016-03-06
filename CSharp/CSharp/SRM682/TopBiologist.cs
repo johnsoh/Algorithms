@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 //42.12 left 
-namespace CSharp
+namespace CSharp.SRM682
 {
     class TopBiologist
     {
@@ -25,7 +25,6 @@ namespace CSharp
             }
             return "AAAAAA";
         }
-
 
         public static void GenerateList(List<String> list, string s, int len)
         {

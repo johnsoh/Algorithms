@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 // done At 1hr.05mins  left
-namespace CSharp.OnDemand
+namespace CSharp.SRM682
 {
     class DNASequence
     {

@@ -61,9 +61,7 @@ namespace CSharp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 2
-        ///2
-        ///2.
+        ///   Looks up a localized string similar to .
         /// </summary>
         internal static string TextFile1 {
             get {
@@ -86,6 +84,15 @@ namespace CSharp.Properties {
         internal static string TextFile3 {
             get {
                 return ResourceManager.GetString("TextFile3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TextFile4 {
+            get {
+                return ResourceManager.GetString("TextFile4", resourceCulture);
             }
         }
     }

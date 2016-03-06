@@ -27,7 +27,6 @@ namespace CSharp
                     
                 }
             }
-
         }
 
         public static void Do()
