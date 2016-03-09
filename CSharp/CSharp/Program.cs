@@ -11,6 +11,7 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
+            CSharp.FHC.Qualification1.Parse();
             Console.Read();
         }
     }

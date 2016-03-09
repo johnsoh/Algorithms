@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharp
+namespace CSharp.GCJ
 {
     class CodeJam2015_1A
     {
