@@ -1,5 +1,7 @@
 # Algorithms
 
+(still under construction... penning down general notes)  
+
 Folder structure + Algorithms
 
 Algorithms  
