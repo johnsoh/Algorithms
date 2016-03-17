@@ -22,9 +22,9 @@ Algorithms
 ---2012R1B.cpp  
 ----SafetyInNumbers // **Binary Search: Continous Minimization**   
   
-* C-sharp  
-  * srm 632  
-    * TagalogDictionary //prefix tree   
+* C#  
+ * srm 632  
+   * TagalogDictionary //prefix tree   
 
 <h2>How to setup on local machine after pull</h2>  
   
