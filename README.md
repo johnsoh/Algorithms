@@ -22,7 +22,7 @@ Algorithms
 ---2012R1B.cpp  
 ----SafetyInNumbers // **Binary Search: Continous Minimization**   
   
-* C#  
+* C# 
  * srm 632  
    * TagalogDictionary //prefix tree   
 
