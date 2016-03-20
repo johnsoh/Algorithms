@@ -70,7 +70,8 @@ namespace CSharp.SRM342
             while(ptr < n)
             {
                 var thisLetter = word[ptr++];
-                if (!currentNode.nextSteps.ContainsKey(thisLetter)) {
+                if (!currentNode.nextSteps.ContainsKey(thisLetter))
+                {
                     currentNode.nextSteps.Add(thisLetter, new Node { symbol = thisLetter });
                 }
                 currentNode = currentNode.nextSteps[thisLetter];

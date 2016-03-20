@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CSharp.ApacTest;
+using CSharp.SRM685;
 
 namespace CSharp
 {
@@ -11,25 +12,12 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            //CSharp.FHC.Qualification1.Parse();
-            /*var one = new int[] {4, 3, 2, 1};
-            var two = new int[] {1, 3, 2, 5, 4 };
-            ms(one);
-            ms(two);*/
-            SRM342.TagalogDictionary.test();
+            SRM189.Mortgage.test();
             Console.Read();
         }
 
-        /*
-        Nodes + edges as objects
-        Space: n+e
-        Next Node: O(1)
 
 
-        Matrix
-        Space: n^2
-        Next Node: O(N)
-        */
 
         public static void ms(int[] arr)
         {
