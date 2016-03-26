@@ -76,7 +76,7 @@ namespace CSharp.Utilities
             public int value = int.MaxValue;
             public List<Path> nextPaths = new List<Path>();
             public bool isDirty = false;
-            public Node prev;
+            public List<Node> prev = new List<Node>();
         }
 
         public class Path

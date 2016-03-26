@@ -1,5 +1,7 @@
 # Algorithms
 
+(still under construction... penning down general notes)  
+
 Folder structure + Algorithms
 
 Algorithms  
@@ -22,6 +24,9 @@ Algorithms
 ---2012R1B.cpp  
 ----SafetyInNumbers // **Binary Search: Continous Minimization**   
   
+* C# 
+ * srm 632  
+   * TagalogDictionary //prefix tree   
 
 <h2>How to setup on local machine after pull</h2>  
   
