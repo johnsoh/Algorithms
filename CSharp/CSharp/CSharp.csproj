@@ -65,6 +65,7 @@
     <Compile Include="SRM685\DoubleWeights.cs" />
     <Compile Include="SRM685\MultiplicationTable2Easy.cs" />
     <Compile Include="Utilities\Counting.cs" />
+    <Compile Include="Utilities\GIntAlgorithms.cs" />
     <Compile Include="Utilities\GraphList.cs" />
     <Compile Include="Utilities\GridAlgorithms.cs" />
     <Compile Include="Utilities\Template.cs" />
