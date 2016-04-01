@@ -9,7 +9,7 @@ namespace CSharp.Utilities
     class GraphList
     {
         // graph with distance
-        public static List<Node> InitNodes(int n, int[] s, int[] e, int[] v)
+       /* public static List<Node> InitNodes(int n, int[] s, int[] e, int[] v)
         {
             var nodes = new List<Node>();
             for (var i = 0; i < n; i++) nodes.Add(new Node());
@@ -108,5 +108,6 @@ namespace CSharp.Utilities
             public bool isDirty = false;
             public Point prev;
         }
+        */
     }
 }
