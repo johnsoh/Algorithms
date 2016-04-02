@@ -33,7 +33,7 @@ namespace CSharp.Utilities
 
                 alist[start].Add(end);
                 if (!edges.ContainsKey(start))
-                    edges.Add(start, new Dictionary<int, int>();
+                    edges.Add(start, new Dictionary<int, int>());
                 edges[start].Add(end, value);
             }
 
@@ -165,8 +165,6 @@ namespace CSharp.Utilities
 
         #endregion
 
-        
-
         #region max-flow min-cut Edmond-Karp algorithm
         // max flow min cut
         public static void testMaxFlowMinCut()
@@ -263,7 +261,7 @@ namespace CSharp.Utilities
         }
         #endregion
 
-        // trie
+        // topographical sort
     }
 
     public class FlowNode

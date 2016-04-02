@@ -8,7 +8,7 @@ namespace CSharp.Utilities
 {
     class GIntAlgorithms
     {
-        #region merge sort
+        #region merge sort with inversions
         public static int msCountInv(int[] arr, int left = 0, int right = -1)
         {
             if (right == -1) right = arr.Length;
@@ -46,9 +46,173 @@ namespace CSharp.Utilities
         }
         #endregion
 
-        // quick sort
+        #region quick sort
+        public static void qs(int[] arr, int left = 0, int right = -1)
+        {
+            if (right == -1) right = arr.Length;
+
+            if(left < right)
+            {
+                var pivot = 4;
+                if (pivot > 1)
+                    qs(arr, left, pivot - 1);
+
+                if (pivot < right - 1)
+                    qs(arr, pivot + 1, right);
+            }
+        }
+
+        private static int partition(int[] arr, int left, int right )
+        { 
+            // pivotval, pivotPtr, nextPtr, done
+            var pivotPtr = left;
+            var nextPtr = left;
+            var pivotValue = arr[right];
+            while(nextPtr < right)
+            {
+                if(arr[nextPtr] < arr[pivotPtr])
+                {
+                    swap(arr, pivotPtr, nextPtr);
+                    pivotPtr++;
+                }
+                nextPtr++;
+            }
+            swap(arr, pivotPtr, right);
+            return pivotPtr;
+        }
+
+        private static void swap(int[] arr, int pivotPtr, int nextPtr)
+        {
+            var temp = arr[nextPtr];
+            arr[nextPtr] = arr[pivotPtr];
+            arr[pivotPtr] = arr[nextPtr];
+        }
+        #endregion
 
         // binary search
+
+        // ffftttttt
+        public static void binarySearchDiscrete(int[] arr)
+        {
+            var left = 0;
+            var right = arr.Length;
+            while(left < right )
+            {
+                var mid = left / 2 + (right - left) / 2; //ERROR!!
+                bool doesSatisfy = DoesSatisfy(arr[mid]);
+                if(doesSatisfy)
+                {
+                    right = mid;
+                }
+                else
+                {
+                    left = mid + 1;
+                }
+            }
+        }
+
+        private static bool DoesSatisfy(int v)
+        {
+            throw new NotImplementedException();
+        }
+
+
+    }
+
+    public class BinarySearchNode
+    {
+        public BinarySearchNode left;
+        public BinarySearchNode right;
+        public int value;
+        public int leftLimit;
+        public int rightLimit; 
+
+        public static void tesBinarySearchTree()
+        {
+            var root = new BinarySearchNode() { value = 5 }; // init root nodes values to neg and pos infinities 
+            var inputs = new int[] { 1, 3, 8, 10, 12 };
+            foreach(var input in inputs)
+            {
+                insert(root, input);
+            }
+
+            // other inputs: https://www.cs.rochester.edu/~gildea/csc282/slides/C12-bst.pdf
+            var otherInputs = new int[] { 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 19, 20};
+            var root2 = new BinarySearchNode();
+            createMinimumBinaryTree(otherInputs, 0, otherInputs.Length - 1, root2);
+        }
+
+        public static void insert(BinarySearchNode root, int value)
+        {
+            var placeOnLeft = value < root.value;
+
+            // if left, check for left null ? put init on left : recursively call insert on child node
+            if(placeOnLeft)
+            {
+                if(root.left == null)
+                {
+                    var node = new BinarySearchNode();
+                    node.rightLimit = Math.Min(root.rightLimit, value); // todo check if this is really true 
+                    node.leftLimit = Math.Max(root.leftLimit, value);
+                    node.value = value;
+                    root.left = node; 
+                }
+                else
+                {
+                    insert(root.left, value);
+                }
+            }
+            else
+            {
+                if(root.right == null)
+                {
+                    var node = new BinarySearchNode();
+                    node.rightLimit = Math.Min(root.rightLimit, value); // todo check if this is really true 
+                    node.leftLimit = Math.Max(root.leftLimit, value);
+                    node.value = value; 
+                    root.right = node;  
+                }
+                else
+                {
+                    insert(root.right, value);
+                }
+            }
+        }
+
+        // TODO: delete and find
+
+        public static bool isValid(BinarySearchNode node, int leftLim = int.MinValue, int rightLim = int.MaxValue)
+        {
+            var leftEval = node.left == null ? true : isValid(node.left, leftLim, node.value);
+            var rightEval = node.right == null ? true : isValid(node.right, node.value, rightLim);
+            return leftEval && rightEval;
+        }
+
+        public static void createMinimumBinaryTree(int[] arr, int left, int right, BinarySearchNode node)
+        {
+            // base case
+            if (left == right)
+            {
+                node.value = arr[left];
+            }
+            else {
+                var mid = left + (right - left) / 2;
+                node.value = arr[mid];
+
+                // create children 
+                // create left
+                if (mid > left)
+                {
+                    node.left = new BinarySearchNode();
+                    createMinimumBinaryTree(arr, left, mid - 1, node.left);
+                }
+                if (mid < right)
+                {
+                    node.right = new BinarySearchNode();
+                    createMinimumBinaryTree(arr, mid + 1, right, node.right);
+                }
+            }
+        }
     }
 
     #region Hash table

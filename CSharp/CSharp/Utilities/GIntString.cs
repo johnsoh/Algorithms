@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace CSharp.Utilities
 {
     class GIntString
-    {
-        /*
+    { 
         public static void multiPalSolve(string[] words)
         {
             var root = new Node();
@@ -16,7 +15,8 @@ namespace CSharp.Utilities
             for (var i = 0; i < n; i++)
             {
                 addWord(root, words[i], "@"+i);
-                addWord(root, words[i].Reverse(), "$"+i); // optimization: reverse function
+                var arr = words[i].ToCharArray().Reverse().ToArray();
+                addWord(root, new string(arr), "$"+i); // optimization: reverse function
             }
 
             var results = countCombiPal(root);
@@ -36,7 +36,7 @@ namespace CSharp.Utilities
                 // initialize: take top from queue
                 var lastIndex = queue.Count - 1;
                 var node = queue[lastIndex]; queue.RemoveAt(lastIndex);
-                if (saveStack.Contains(node))
+                if (saveStack.ContainsKey(node))
                 {
                     savedTerminators = saveStack[node];
                     saveStack.Remove(node); // TODO: check syntax
@@ -44,10 +44,9 @@ namespace CSharp.Utilities
                 // check and update terminators
                 if (node.Terminators != null)
                 {
-                    var thisTermSymbols = node[26];
-                    resolveTerminators(savedTerminators,
-        thisTermSymbols,
-        fullResults);
+                    var thisTermSymbols = node.Terminators;
+                    resolveTerminators(savedTerminators, thisTermSymbols, fullResults); // llaa <--> ll case
+                    resolveTerminators(thisTermSymbols, thisTermSymbols, fullResults); // bat <--> tab case
                 }
                 // create save state if there are more than 1 child
                 var saveState = node.ChildCount > 1;
@@ -56,7 +55,7 @@ namespace CSharp.Utilities
                     queue.Add(nextNode);
                     if (saveState)
                     {
-                        saveStack.Add(nextNode, savedTerminators.Copy());
+                        saveStack.Add(nextNode, savedTerminators.ToList());
                     }
                 }
             }
@@ -65,24 +64,29 @@ namespace CSharp.Utilities
 
         private static void resolveTerminators(List<string> higher, List<string> lower, List<List<int>> results)
         {
-            foreach (var highTerm in higher)
+            
+            for(var i = 0; i < higher.Count; i++)
             {
-                foreach (var lowTerm in lower)
+                for(var j = i+1; j < lower.Count; j++)
                 {
-                    if (highTerm[0] == lowTerm[0]) continue;
-                    var indexOne = int(highTerm.Substring(1));
-                    var indexTwo = int(lowTerm.Substring(1));
-                    results.Add(new List<int>() { indexOne, indexTwo });
+                    var higherTerm = higher[i];
+                    var lowerTerm = lower[j];
+                    if (higherTerm[0] == lowerTerm[0]) continue;
+                    var indexOne = int.Parse((higherTerm[0] == '@' ? higherTerm : lowerTerm).Substring(1));
+                    var indexTwo = int.Parse((higherTerm[0] == '$' ? higherTerm : lowerTerm).Substring(1));
+                    results.Add(new List<int> { indexOne, indexTwo });
                 }
             }
         }
+
+        #region Trie Implementation
 
         public static void addWord(Node root, string word, string terminator)
         {
             var node = root;
             var ptr = 0;
             var n = word.Length;
-            while (ptr < word)
+            while (ptr < word.Length)
             {
                 char c = word[ptr];
                 node.AddChild(c);
@@ -100,7 +104,7 @@ namespace CSharp.Utilities
             // supporting method
             public List<Node> GetChildren()
             {
-                return children.GetValues();
+                return children.Values.ToList(); // need to optimize. to list too slow. 
             }
 
             public void AddChild(char c)
@@ -120,7 +124,10 @@ namespace CSharp.Utilities
             {
                 children = new Dictionary<char, Node>();
             }
-        }*/
+        }
+
+        #endregion
+
 
     }
 }
