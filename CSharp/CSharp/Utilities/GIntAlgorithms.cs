@@ -115,9 +115,9 @@ namespace CSharp.Utilities
         {
             throw new NotImplementedException();
         }
-
-
     }
+
+    #region Binary Search Tree
 
     public class BinarySearchNode
     {
@@ -215,7 +215,10 @@ namespace CSharp.Utilities
         }
     }
 
+    #endregion
+
     #region Hash table
+
     public class MyHt
     {
 
@@ -338,5 +341,6 @@ namespace CSharp.Utilities
             return true;
         }
     }
+    
     #endregion
 }
