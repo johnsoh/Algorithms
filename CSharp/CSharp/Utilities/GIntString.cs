@@ -64,7 +64,6 @@ namespace CSharp.Utilities
 
         private static void resolveTerminators(List<string> higher, List<string> lower, List<List<int>> results)
         {
-            
             for(var i = 0; i < higher.Count; i++)
             {
                 for(var j = i+1; j < lower.Count; j++)

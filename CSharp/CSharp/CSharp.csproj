@@ -66,6 +66,9 @@
     <Compile Include="SRM685\MultiplicationTable2Easy.cs" />
     <Compile Include="Utilities\Counting.cs" />
     <Compile Include="Utilities\GIntAlgorithms.cs" />
+    <Compile Include="Utilities\GIntCombinatorics.cs" />
+    <Compile Include="Utilities\GIntGraph.cs" />
+    <Compile Include="Utilities\GIntString.cs" />
     <Compile Include="Utilities\GraphList.cs" />
     <Compile Include="Utilities\GridAlgorithms.cs" />
     <Compile Include="Utilities\Template.cs" />

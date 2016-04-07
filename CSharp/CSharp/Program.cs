@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using CSharp.SRM685;
+using CSharp.Utilities;
 
 namespace CSharp
 {
@@ -12,12 +13,12 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            SRM189.Mortgage.test();
+            //SRM189.Mortgage.test();
+            //MyHt.testMyHt();
+            //BinarySearchNode.tesBinarySearchTree();
+            GIntCombinatorics.test();
             Console.Read();
         }
-
-
-
 
         public static void ms(int[] arr)
         {

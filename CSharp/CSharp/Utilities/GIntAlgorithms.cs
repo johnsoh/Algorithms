@@ -89,7 +89,7 @@ namespace CSharp.Utilities
         }
         #endregion
 
-        // binary search
+        #region binary search
 
         // ffftttttt
         public static void binarySearchDiscrete(int[] arr)
@@ -115,7 +115,100 @@ namespace CSharp.Utilities
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
+
+    #region Heap-Max
+
+    public class Heap
+    {
+
+        List<int> list = new List<int>();
+        int ptr = 0;
+
+        public void insert(int v)
+        {
+            // insert at back
+            list.Add(v);
+            var candidate = list.Count;
+            while (candidate > 0)
+            {
+                var parent = getParent(candidate);
+
+                // check if parent & child r/s holds
+                if (list[parent] > list[candidate]) break;
+
+                // otherwise we need to bubble up
+                swap(parent, candidate);
+                candidate = parent;
+            }
+        }
+
+        public int extract()
+        {
+            // delete item 0;
+            var result = peek();
+            var n = list.Count;
+            if (n == 1)
+            {
+                list.RemoveAt(0);
+                return result;
+            }
+
+            // swap last element with previous top
+            list[0] = list[n - 1];
+            list.RemoveAt(n - 1);
+
+            // bubble down: max heapify
+            heapifyMax(0);
+
+            // return value
+            return result;
+        }
+
+        public int peek()
+        {
+            return list[0];
+        }
+
+        private void heapifyMax(int candidate)
+        {
+            var limit = list.Count;
+            var leftChildIndex = 2 * candidate + 1;
+            var rightChildIndex = 2 * candidate + 2;
+
+            // find the index of the biggest avaliable value among candidate, leftptr, rightptr
+            // so we are in teh order :  [candidate] .... [2*candidate] [leftChildIndex] [rightChildIndex]
+            var largest = leftChildIndex < limit && list[candidate] < list[leftChildIndex] ? leftChildIndex : candidate;
+            largest = rightChildIndex < limit && list[candidate] < list[rightChildIndex] ? rightChildIndex : largest;
+
+            if (largest != candidate) // we are not done bubbling down
+            {
+                swap(largest, candidate);
+                heapifyMax(largest);
+            }
+        }
+
+        private void swap(int first, int second)
+        {
+            var tempFirst = list[first];
+            list[first] = list[second];
+            list[second] = tempFirst;
+        }
+
+        /*private int getchild(int parent)
+        {
+            return new List<int> { 2 * parent + 1, 2 * parent + 2 };
+        }*/
+
+        private int getParent(int child)
+        {
+            return (child + 1) / 2 - 1;
+        }
+    }
+
+    #endregion Heap-Min
 
     #region Binary Search Tree
 
@@ -140,6 +233,61 @@ namespace CSharp.Utilities
             var otherInputs = new int[] { 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 19, 20};
             var root2 = new BinarySearchNode();
             createMinimumBinaryTree(otherInputs, 0, otherInputs.Length - 1, root2);
+        }
+
+        public static void delete(BinarySearchNode root, int value)
+        {
+            // look for the node. 
+            var node = root;
+            BinarySearchNode parent = null;
+            while(node.value != value)
+            {
+                // check base case
+                if (node == null || node.value == value)
+                {
+                    break;
+                }
+
+                parent = node;
+                if(value < node.value)
+                {
+                    node = root.left;
+                }
+                else
+                {
+                    node = root.right;
+                }
+            }
+            if (node == null) return;
+            deleteHelper(node: node, parent: parent, value: value);
+        }
+
+        public static void deleteHelper(BinarySearchNode node, BinarySearchNode parent, int value)
+        {
+            // if it has no children delete
+            // if it has one child, connect child to parent
+            // else pick either l or r and recursively call deleteHelper
+            if (node.right != null && node.left != null)
+            {
+                // recurse. lets pick right
+                deleteHelper(node.right, node, value);
+            }
+            else
+            {
+                BinarySearchNode child = null;
+                if (node.right != null || node.left != null)
+                {
+                    child = (node.right != null) ? node.right : node.left;
+                }
+                if (parent.right != null && parent.right.Equals(node))
+                {
+                    parent.right = child;
+                }
+                else if (parent.left != null && parent.left.Equals(node))
+                {
+                    parent.left = child;
+                }
+            }
         }
 
         public static void insert(BinarySearchNode root, int value)
