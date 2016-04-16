@@ -63,6 +63,15 @@ namespace CSharp.Properties {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        internal static string InputBig {
+            get {
+                return ResourceManager.GetString("InputBig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         internal static string TextFile1 {
             get {
                 return ResourceManager.GetString("TextFile1", resourceCulture);

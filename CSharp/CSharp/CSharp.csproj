@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="FHC\Qualification1.cs" />
     <Compile Include="GCJ\CodeJam2015_1A.cs" />
+    <Compile Include="GCJ\CodeJam2016_Q.cs" />
     <Compile Include="Hackerrank\PacManDFS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +65,11 @@
     <Compile Include="SRM685\Class1.cs" />
     <Compile Include="SRM685\DoubleWeights.cs" />
     <Compile Include="SRM685\MultiplicationTable2Easy.cs" />
+    <Compile Include="TC\SRM688\ParenthesesDiv2Easy.cs" />
+    <Compile Include="TC\SRM688\ParenthesesDiv2Hard.cs" />
+    <Compile Include="TC\SRM688\ParenthesesDiv2Medium.cs" />
+    <Compile Include="TC\TCO16_1B\ExploringNumbers.cs" />
+    <Compile Include="TC\TCO16_1B\ReplacingDigit.cs" />
     <Compile Include="Utilities\Counting.cs" />
     <Compile Include="Utilities\GIntAlgorithms.cs" />
     <Compile Include="Utilities\GIntCombinatorics.cs" />
@@ -91,6 +97,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TextFile3.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SRM688\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InputBig.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

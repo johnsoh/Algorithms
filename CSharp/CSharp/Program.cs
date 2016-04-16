@@ -11,6 +11,13 @@ namespace CSharp
 {
     class Program
     {
+        // TODO: primes processing
+        // binary string combinatorics
+        // row vs column (CJ 1b)
+        // in place sorting? (shopping) 
+        // enumeration / int equivalent of str processing (gint real)
+
+
         static void Main(string[] args)
         {
             //SRM189.Mortgage.test();
