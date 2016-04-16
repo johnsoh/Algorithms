@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="FHC\Qualification1.cs" />
     <Compile Include="GCJ\CodeJam2015_1A.cs" />
+    <Compile Include="GCJ\CodeJam2016_1A.cs" />
+    <Compile Include="GCJ\CodeJam2016_1B.cs" />
     <Compile Include="GCJ\CodeJam2016_Q.cs" />
     <Compile Include="Hackerrank\PacManDFS.cs" />
     <Compile Include="Program.cs" />
@@ -99,10 +101,13 @@
     <None Include="Resources\TextFile3.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="SRM688\" />
+    <None Include="Resources\bIn.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\InputBig.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aInBig.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

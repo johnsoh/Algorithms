@@ -8,6 +8,32 @@ namespace CSharp.GCJ
 {
     class CodeJam2016_1B
     {
+
+
+/*        # good test inputs 
+3
+2
+6 8
+4 8
+2 6
+2
+4 7
+6 12
+4 6
+3
+1 2 3
+2 3 5
+3 5 6
+2 3 4
+1 2 3
+3
+4 7 11
+11 15 16
+8 12 15
+9 15 16
+7 12 15
+*/
+
         static void parseSmallInput()
         {
             var file = Properties.Resources.bIn.Split(new string[] { System.Environment.NewLine, "\n" }, StringSplitOptions.None);
@@ -151,4 +177,4 @@ namespace CSharp.GCJ
         }
     }
 }
-}
+
